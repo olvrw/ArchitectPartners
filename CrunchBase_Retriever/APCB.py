@@ -6,7 +6,7 @@
 
 from os import listdir
 from os.path import isfile, join
-from bs4 import BeautifulSoup as bs 
+from bs4 import BeautifulSoup as bs
 
 
 # the location for the downloaded webpage
@@ -18,7 +18,7 @@ htmlName2 = "Zenefits _ CrunchBase.html"
 
 
 htmlName = htmlName2
-htmlLocation = baseLocation+htmlName; 
+htmlLocation = baseLocation+htmlName;
 soup = bs(open(htmlLocation, encoding = "utf-8"))
 Name = soup.find(id="profile_header_heading").text
 Headquarters = soup.find(id="info-card-overview-content").div.dl.find_all('div')[1].find_all('dd')[0].text
@@ -42,7 +42,4 @@ Final = Name+'~'+Headquarters+'~'+Description+'~'+Founders+'~'+Categories+'~'+We
 
 # where the text file is stored
 with open("/Users/oliverwang/Desktop/data.txt", "a") as myfile:
-    myfile.write(Final+'\n')
-
-
-
+    myfile.write(Final+'\n');
